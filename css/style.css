@@ -5,11 +5,15 @@
   --sage-light: #e6ebe2;
   --gold: #aa8751;
   --ink: #433a37;
-  --line: rgba(170, 135, 81, .36);
+  --line: rgba(170, 135, 81, 0.36);
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   width: 100%;
@@ -19,15 +23,25 @@ body {
   background: var(--ivory);
 }
 
-.editorial-display { font-family: "Playfair Display", serif; }
+.editorial-display {
+  font-family: "Playfair Display", serif;
+}
 .page-shell {
   width: 100%;
   min-height: calc(100 * min(var(--vh, 1vh), 1vh));
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 88% 11%, rgba(245, 222, 216, .88), transparent 24rem),
-    radial-gradient(circle at 8% 46%, rgba(230, 235, 226, .72), transparent 27rem),
+    radial-gradient(
+      circle at 88% 11%,
+      rgba(245, 222, 216, 0.88),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 8% 46%,
+      rgba(230, 235, 226, 0.72),
+      transparent 27rem
+    ),
     var(--ivory);
 }
 
@@ -39,21 +53,36 @@ body {
   place-items: center;
   padding: 1.5rem;
   background:
-    radial-gradient(circle at center, rgba(255,255,255,.74), rgba(251,245,235,.97)),
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.74),
+      rgba(251, 245, 235, 0.97)
+    ),
     var(--ivory);
-  transition: opacity .8s ease, visibility .8s ease;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
 }
-.cover.is-open { opacity: 0; visibility: hidden; pointer-events: none; }
-.cover::before, .cover::after {
+.cover.is-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.cover::before,
+.cover::after {
   content: "";
   position: absolute;
   width: 23rem;
   height: 23rem;
-  border: 1px solid rgba(170,135,81,.2);
+  border: 1px solid rgba(170, 135, 81, 0.2);
   border-radius: 50%;
 }
-.cover::before { transform: translate(-40%, -34%); }
-.cover::after { transform: translate(40%, 38%); }
+.cover::before {
+  transform: translate(-40%, -34%);
+}
+.cover::after {
+  transform: translate(40%, 38%);
+}
 
 .seal-button {
   width: min(21rem, 88vw);
@@ -65,40 +94,60 @@ body {
   align-items: center;
   border: 1px solid var(--gold);
   border-radius: 999px;
-  background: rgba(251,245,235,.84);
+  background: rgba(251, 245, 235, 0.84);
   color: var(--ink);
-  box-shadow: 0 18px 50px rgba(91, 70, 50, .12);
+  box-shadow: 0 18px 50px rgba(91, 70, 50, 0.12);
   cursor: pointer;
-  transition: transform .35s ease, box-shadow .35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
-.seal-button:hover { transform: translateY(-5px) scale(1.015); box-shadow: 0 24px 55px rgba(91, 70, 50, .18); }
-.seal-button:focus-visible, .location-toggle:focus-visible, .nav-link:focus-visible {
+.seal-button:hover {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow: 0 24px 55px rgba(91, 70, 50, 0.18);
+}
+.seal-button:focus-visible,
+.location-toggle:focus-visible,
+.nav-link:focus-visible {
   outline: 3px solid var(--sage);
   outline-offset: 4px;
 }
-.seal-button::before, .seal-button::after {
+.seal-button::before,
+.seal-button::after {
   content: "✦";
   position: absolute;
   color: var(--gold);
   font-size: 1rem;
 }
-.seal-button::before { top: 2.25rem; }
-.seal-button::after { bottom: 2.25rem; }
+.seal-button::before {
+  top: 2.25rem;
+}
+.seal-button::after {
+  bottom: 2.25rem;
+}
 
 .botanical {
   position: absolute;
   color: var(--sage);
-  opacity: .34;
+  opacity: 0.34;
   pointer-events: none;
 }
-.botanical-left { top: 2.5rem; left: -1rem; transform: rotate(-13deg); }
-.botanical-right { top: 6rem; right: -1.4rem; transform: scaleX(-1) rotate(-12deg); }
+.botanical-left {
+  top: 2.5rem;
+  left: -1rem;
+  transform: rotate(-13deg);
+}
+.botanical-right {
+  top: 6rem;
+  right: -1.4rem;
+  transform: scaleX(-1) rotate(-12deg);
+}
 .hanging {
   position: absolute;
   top: 0;
   width: 74px;
   height: 220px;
-  opacity: .58;
+  opacity: 0.58;
   pointer-events: none;
 }
 .hanging::before {
@@ -116,21 +165,33 @@ body {
   color: var(--gold);
   font-size: 1.45rem;
 }
-.hanging-one { left: 6%; }
-.hanging-two { right: 9%; height: 165px; }
+.hanging-one {
+  left: 6%;
+}
+.hanging-two {
+  right: 9%;
+  height: 165px;
+}
 
-.content-width { width: min(100% - 2rem, 68rem); margin-inline: auto; }
-.section { padding: 5.25rem 0; position: relative; }
+.content-width {
+  width: min(100% - 2rem, 68rem);
+  margin-inline: auto;
+}
+.section {
+  padding: 5.25rem 0;
+  position: relative;
+}
 .fine-rule {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .75rem;
+  gap: 0.75rem;
   color: var(--gold);
-  font-size: .85rem;
+  font-size: 0.85rem;
   margin: 1.2rem auto;
 }
-.fine-rule::before, .fine-rule::after {
+.fine-rule::before,
+.fine-rule::after {
   content: "";
   width: 3.5rem;
   border-top: 1px solid var(--line);
@@ -138,13 +199,13 @@ body {
 .eyebrow {
   color: var(--sage);
   text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: .66rem;
+  letter-spacing: 0.18em;
+  font-size: 0.66rem;
 }
 .ganesh-icon {
   width: 3.25rem;
   height: auto;
-  margin: 0 auto .75rem;
+  margin: 0 auto 0.75rem;
   display: block;
 }
 
@@ -161,7 +222,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(251,245,235,.78);
+  background: rgba(251, 245, 235, 0.78);
 }
 .hero-welcome-image {
   position: absolute;
@@ -177,15 +238,30 @@ body {
   padding: 4rem 1rem;
   text-align: center;
 }
-.hero-welcome-content .fine-rule { margin-block: 1.7rem; }
-.hero-welcome-content .welcome-verse { max-width: 36rem; margin-inline: auto; }
-.image-caption { display: none; }
+.hero-welcome-content .fine-rule {
+  margin-block: 1.7rem;
+}
+.hero-welcome-content .welcome-verse {
+  max-width: 36rem;
+  margin-inline: auto;
+}
+.image-caption {
+  display: none;
+}
 
-.names { font-size: clamp(2.8rem, 10vw, 5.6rem); line-height: .95; letter-spacing: -.05em; }
-.weds { font-size: 1.35rem; font-style: italic; color: var(--gold); }
+.names {
+  font-size: clamp(2.8rem, 10vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+.weds {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--gold);
+}
 
 .event-card {
-  border: 1px solid rgba(170,135,81,.34);
+  border: 1px solid rgba(170, 135, 81, 0.34);
   padding: 1.7rem;
   background: rgb(255, 253, 248);
   position: relative;
@@ -197,55 +273,77 @@ body {
   content: "";
   position: absolute;
   inset: 7px;
-  border: 1px solid rgba(130,144,125,.12);
+  border: 1px solid rgba(130, 144, 125, 0.12);
   pointer-events: none;
 }
-.event-card > * { position: relative; z-index: 1; }
-.event-card > .event-location { margin-top: auto; }
+.event-card > * {
+  position: relative;
+  z-index: 1;
+}
+.event-card > .event-location {
+  margin-top: auto;
+}
 .date-tab {
   display: inline-block;
   color: #fffaf3;
-  padding: .52rem .9rem;
+  padding: 0.52rem 0.9rem;
   background: var(--sage);
-  font-size: .66rem;
-  letter-spacing: .11em;
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
-.event-title { font-size: 1.62rem; line-height: 1.22; }
-.event-place { color: var(--sage); font-size: .8rem; line-height: 1.7; }
+.event-title {
+  font-size: 1.62rem;
+  line-height: 1.22;
+}
+.event-place {
+  color: var(--sage);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
 
 .countdown-box {
   border: 1px solid var(--line);
-  background: rgba(255,252,246,.64);
+  background: rgba(255, 252, 246, 0.64);
   padding: 2rem 1rem;
 }
 .time-cell {
   min-width: 4rem;
   border-right: 1px solid var(--line);
-  padding: .25rem .8rem;
+  padding: 0.25rem 0.8rem;
 }
-.time-cell:last-child { border-right: 0; }
-.time-number { font-family: "Playfair Display", serif; font-size: clamp(2rem, 8vw, 3.65rem); line-height: 1; color: var(--gold); }
+.time-cell:last-child {
+  border-right: 0;
+}
+.time-number {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 8vw, 3.65rem);
+  line-height: 1;
+  color: var(--gold);
+}
 
 .location-card {
   border-top: 1px solid var(--gold);
-  border-bottom: 1px solid rgba(170,135,81,.35);
+  border-bottom: 1px solid rgba(170, 135, 81, 0.35);
   padding: 1.65rem 0;
 }
 .location-toggle {
   display: inline-block;
   border: 1px solid var(--sage);
-  padding: .7rem 1rem;
+  padding: 0.7rem 1rem;
   color: var(--sage);
   background: transparent;
   font-family: "Libre Baskerville", serif;
-  font-size: .7rem;
-  letter-spacing: .08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
-.location-toggle:hover { background: var(--sage); color: #fff; }
+.location-toggle:hover {
+  background: var(--sage);
+  color: #fff;
+}
 
 .wedding-date-row {
   display: flex;
@@ -257,18 +355,27 @@ body {
 }
 .wedding-day {
   text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: .72rem;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
   color: var(--sage);
 }
-.wedding-date-divider { width: 1px; height: 2.8rem; background: var(--line); }
+.wedding-date-divider {
+  width: 1px;
+  height: 2.8rem;
+  background: var(--line);
+}
 .wedding-date-big {
   font-family: "Playfair Display", serif;
   font-size: clamp(1.8rem, 6vw, 2.6rem);
   font-weight: 700;
   color: var(--ink);
 }
-.wedding-date-tagline { font-style: italic; color: var(--gold); font-size: .8rem; margin-top: .3rem; }
+.wedding-date-tagline {
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
 
 .calendar-strip {
   border-top: 1px solid var(--line);
@@ -279,31 +386,56 @@ body {
 }
 .calendar-month {
   text-transform: uppercase;
-  letter-spacing: .16em;
-  font-size: .68rem;
+  letter-spacing: 0.16em;
+  font-size: 0.68rem;
   color: var(--sage);
   margin-bottom: 1rem;
 }
 .calendar-days {
   display: flex;
   justify-content: center;
-  gap: clamp(.4rem, 3vw, 1rem);
-  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  gap: clamp(0.4rem, 3vw, 1rem);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 18%,
+    #000 82%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 18%,
+    #000 82%,
+    transparent
+  );
 }
 .calendar-day {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   min-width: 2.4rem;
   opacity: 0.05;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
-.calendar-day:nth-child(2), .calendar-day:nth-child(6) { opacity: .35; }
-.calendar-day:nth-child(3), .calendar-day:nth-child(5) { opacity: .65; }
-.calendar-day.is-active { opacity: 1; }
-.calendar-day-name { font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); }
+.calendar-day:nth-child(2),
+.calendar-day:nth-child(6) {
+  opacity: 0.35;
+}
+.calendar-day:nth-child(3),
+.calendar-day:nth-child(5) {
+  opacity: 0.65;
+}
+.calendar-day.is-active {
+  opacity: 1;
+}
+.calendar-day-name {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
 .calendar-day-num {
   font-family: "Playfair Display", serif;
   font-size: 1.05rem;
@@ -313,8 +445,8 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  line-height: 1;
-  padding-bottom: .15rem;
+  line-height: 1.95;
+  padding-bottom: 0.15rem;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -324,29 +456,34 @@ body {
 .calendar-add-link {
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   margin-top: 1.4rem;
-  font-size: .64rem;
-  letter-spacing: .1em;
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--sage);
   text-decoration: none;
   border-bottom: 1px solid var(--sage);
   padding-bottom: 2px;
 }
-.calendar-add-link:hover { color: var(--gold); border-color: var(--gold); }
+.calendar-add-link:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
 
-.wedding-schedule { text-align: center; }
+.wedding-schedule {
+  text-align: center;
+}
 .wedding-venue-row {
   text-align: center;
   margin-top: 1.8rem;
-  border-top: 1px solid rgba(170,135,81,.3);
+  border-top: 1px solid rgba(170, 135, 81, 0.3);
   padding-top: 1.6rem;
 }
 .wedding-venue-actions {
   display: flex;
   justify-content: center;
-  gap: .75rem;
+  gap: 0.75rem;
   margin-top: 1rem;
   flex-wrap: wrap;
 }
@@ -356,23 +493,46 @@ body {
   text-decoration: none;
 }
 
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (min-width: 640px) {
-  .section { padding: 7rem 0; }
-  .hero-frame img { height: 30rem; }
-  .event-card { padding: 2.2rem; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+  .section {
+    padding: 7rem 0;
+  }
+  .hero-frame img {
+    height: 30rem;
+  }
+  .event-card {
+    padding: 2.2rem;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 639px) {
   .wedding-date-row {
     flex-direction: column;
-    gap: .6rem;
+    gap: 0.6rem;
     text-align: center;
   }
-  .wedding-date-divider { width: 2.8rem; height: 1px; }
+  .wedding-date-divider {
+    width: 2.8rem;
+    height: 1px;
+  }
 
   .calendar-days {
     justify-content: center;
@@ -383,11 +543,22 @@ body {
   .calendar-day:nth-child(7) {
     display: none;
   }
-  .calendar-day:nth-child(2), .calendar-day:nth-child(6) { opacity: .35; }
-  .calendar-day:nth-child(3), .calendar-day:nth-child(5) { opacity: .65; }
-  .calendar-day { min-width: 2.6rem; }
+  .calendar-day:nth-child(2),
+  .calendar-day:nth-child(6) {
+    opacity: 0.35;
+  }
+  .calendar-day:nth-child(3),
+  .calendar-day:nth-child(5) {
+    opacity: 0.65;
+  }
+  .calendar-day {
+    min-width: 2.6rem;
+  }
 
-  .time-cell { min-width: 3.4rem; padding: .25rem .5rem; }
+  .time-cell {
+    min-width: 3.4rem;
+    padding: 0.25rem 0.5rem;
+  }
 }
 
 /* Styles below replace the per-element inline style="" attributes previously in index.html */
