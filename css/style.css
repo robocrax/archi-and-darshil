@@ -311,8 +311,10 @@ body {
 }
 .calendar-day.is-active .calendar-day-num {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  line-height: 1;
+  padding-bottom: .15rem;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -362,6 +364,30 @@ body {
   .hero-frame img { height: 30rem; }
   .event-card { padding: 2.2rem; }
   .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+}
+
+@media (max-width: 639px) {
+  .wedding-date-row {
+    flex-direction: column;
+    gap: .6rem;
+    text-align: center;
+  }
+  .wedding-date-divider { width: 2.8rem; height: 1px; }
+
+  .calendar-days {
+    justify-content: center;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .calendar-day:nth-child(1),
+  .calendar-day:nth-child(7) {
+    display: none;
+  }
+  .calendar-day:nth-child(2), .calendar-day:nth-child(6) { opacity: .35; }
+  .calendar-day:nth-child(3), .calendar-day:nth-child(5) { opacity: .65; }
+  .calendar-day { min-width: 2.6rem; }
+
+  .time-cell { min-width: 3.4rem; padding: .25rem .5rem; }
 }
 
 /* Styles below replace the per-element inline style="" attributes previously in index.html */
