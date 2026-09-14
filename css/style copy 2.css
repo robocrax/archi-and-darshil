@@ -25,6 +25,20 @@ body {
   overflow-x: hidden;
   background: var(--ivory);
 }
+body::before {
+  content: "";
+  position: absolute;
+  top: calc(85 * min(var(--vh, 1vh), 1vh));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/floral-bg.svg");
+  background-repeat: repeat;
+  background-size: 530px auto;
+  opacity: 0.65;
+  transform: scaleY(-1);
+  pointer-events: none;
+}
 body.cover-active {
   overflow: hidden;
   height: 100vh;
@@ -107,10 +121,48 @@ body.cover-active {
   height: 1.2rem;
 }
 
+/* Sits on the border between two sections so the artwork bridges the seam. */
+.section-seam {
+  position: relative;
+  height: 0;
+  overflow: visible;
+}
+.seam-flower {
+  position: absolute;
+  top: 0;
+  width: var(--flower-size, clamp(12rem, 30vw, 20rem));
+  height: auto;
+  opacity: 0.55;
+  pointer-events: none;
+  will-change: transform;
+}
+.seam-flower-right {
+  right: -0.5rem;
+  transform: translateY(calc(-50% + var(--parallax-y, 0px))) rotate(90deg) var(--flower-rotate, );
+}
+.seam-flower-left {
+  left: -0.5rem;
+  transform: translateY(calc(-50% + var(--parallax-y, 0px))) scaleX(-1) var(--flower-rotate, );
+}
+
+/* Large single flowers scattered behind card content within a section. */
+.decor-flowers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.decor-flower {
+  position: absolute;
+  width: var(--flower-size, clamp(15rem, 30vw, 32rem));
+  height: auto;
+  opacity: 0.4;
+  transform: translateY(var(--parallax-y, 0px)) var(--flower-rotate, );
+  will-change: transform;
+}
 .page-shell {
   width: 100%;
   min-height: calc(50 * min(var(--vh, 1vh), 1vh));
-  min-height: 50dvh;
   position: relative;
   overflow-x: hidden;
   background:
@@ -312,23 +364,15 @@ body.cover-active {
   padding: 5.25rem 0;
   position: relative;
   min-height: calc(100 * min(var(--vh, 1vh), 1vh));
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .closing-section {
-  padding: 4rem 0 5rem;
-  min-height: calc(50 * min(var(--vh, 1vh), 1vh));
-  min-height: 50dvh;
+  padding-top: 0;
+  min-height: calc(70 * min(var(--vh, 1vh), 1vh));
   display: grid;
   place-items: center;
-}
-#wedding {
-  min-height: 0;
-}
-#countdown {
-  min-height: 0;
 }
 .fine-rule {
   display: flex;
@@ -359,8 +403,7 @@ body.cover-active {
 }
 
 .hero-welcome {
-  min-height: calc(90 * min(var(--vh, 1vh), 1vh));
-  min-height: 100svh;
+  min-height: calc(85 * min(var(--vh, 1vh), 1vh));
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -451,7 +494,7 @@ body.cover-active {
   text-transform: uppercase;
 }
 .event-title {
-  font-size: 35px;
+  font-size: 1.62rem;
   line-height: 1.22;
 }
 .event-place {
@@ -461,129 +504,51 @@ body.cover-active {
 }
 
 /* Image-backed cards: photo fills the card, details sit in a scrim anchored to the bottom. */
-/* Standalone full-height page: the whole ceremony photo is shown at full viewport height, centered. */
-.event-photo-section {
+.event-card.photo-card {
   padding: 0;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 4 / 5;
   text-align: center;
-  background: var(--ivory);
 }
 .photo-card-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset: 0;
   z-index: 0;
-  width: auto;
+  width: 100%;
   height: 100%;
-  max-width: none;
-  object-fit: contain;
-  transform: translate(-50%, -50%);
+  object-fit: cover;
 }
 .photo-card-overlay {
   position: relative;
   z-index: 1;
+  margin-top: auto;
   padding: 1.7rem 1.6rem 1.9rem;
-}
-.event-photo-section .photo-card-overlay {
-  width: 100%;
-  max-width: 18rem;
-  margin-inline: auto;
-  padding: 1.6rem;
+  background: linear-gradient(
+    to top,
+    rgba(35, 27, 22, 0.88) 15%,
+    rgba(35, 27, 22, 0.48) 62%,
+    transparent 100%
+  );
 }
 .photo-card-overlay .event-title {
-  background: linear-gradient(160deg, #2b211d 12%, #6b5b4e 50%, #2b211d 88%);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-/* Wedding photo's sky backdrop doesn't have enough texture for the clipped-gradient look, so it stays a plain carved title. */
-[data-template-id="wedding-photo-card"] .photo-card-overlay .event-title {
-  background: none;
-  -webkit-background-clip: initial;
-  -moz-background-clip: initial;
-  background-clip: initial;
   color: #fdf8ef;
-}
-/* Scrim behind the wedding overlay text so it stays legible against the bright sky photo. */
-[data-template-id="wedding-photo-card"] .photo-card-overlay {
-  background: rgba(35, 27, 22, 0.42);
-  border-radius: 18px;
-}
-[data-template-id="wedding-photo-card"] .photo-card-overlay .photo-card-time,
-[data-template-id="wedding-photo-card"] .photo-card-overlay .photo-card-description,
-[data-template-id="wedding-photo-card"] .photo-card-overlay .event-place {
-  color: #fdf8ef;
-}
-[data-template-id="wedding-photo-card"] .photo-card-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-}
-[data-template-id="wedding-photo-card"] .photo-card-overlay .location-toggle {
-  border-color: rgba(255, 255, 255, 0.65);
-  color: #fdf8ef;
-}
-[data-template-id="wedding-photo-card"] .photo-card-overlay .location-toggle:hover {
-  background: #fdf8ef;
-  color: var(--ink);
 }
 .photo-card-time {
-  color: var(--gold);
-}
-.photo-card-description {
-  color: var(--ink);
-}
-.photo-card-divider {
-  border-top: 1px solid rgba(67, 58, 55, 0.28);
-}
-.photo-card-overlay .event-place {
-  color: var(--sage);
-}
-/* Mandvo cards use a darker brown instead of sage green for all overlay text. */
-[data-template-id="mandvo-card"] .photo-card-overlay .photo-card-time,
-[data-template-id="archi-mandvo-card"] .photo-card-overlay .photo-card-time,
-[data-template-id="mandvo-card"] .photo-card-overlay .event-place,
-[data-template-id="archi-mandvo-card"] .photo-card-overlay .event-place {
-  color: #4a2f22;
-}
-[data-template-id="mandvo-card"] .photo-card-overlay .location-toggle,
-[data-template-id="archi-mandvo-card"] .photo-card-overlay .location-toggle {
-  border-color: #4a2f22;
-  color: #4a2f22;
-}
-[data-template-id="mandvo-card"] .photo-card-overlay .location-toggle:hover,
-[data-template-id="archi-mandvo-card"] .photo-card-overlay .location-toggle:hover {
-  background: #4a2f22;
-  color: #fdf8ef;
-}
-/* Sangeet photo is darker, so its text stays light for contrast. */
-[data-template-id="sangeet-card"] .photo-card-overlay .event-title {
-  background: linear-gradient(160deg, #fdf8ef 12%, #f0cf9c 50%, #fdf8ef 88%);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-[data-template-id="sangeet-card"] .photo-card-overlay .photo-card-description {
-  color: #fdf8ef;
-}
-[data-template-id="sangeet-card"] .photo-card-time {
   color: #f0cf9c;
 }
-[data-template-id="sangeet-card"] .photo-card-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-}
-[data-template-id="sangeet-card"] .photo-card-overlay .event-place {
+.photo-card-description {
   color: rgba(253, 248, 239, 0.85);
 }
-[data-template-id="sangeet-card"] .photo-card-overlay .location-toggle {
+.photo-card-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+.photo-card-overlay .event-place {
+  color: rgba(253, 248, 239, 0.82);
+}
+.photo-card-overlay .location-toggle {
   border-color: rgba(255, 255, 255, 0.65);
   color: #fdf8ef;
 }
-[data-template-id="sangeet-card"] .photo-card-overlay .location-toggle:hover {
+.photo-card-overlay .location-toggle:hover {
   background: #fdf8ef;
   color: var(--ink);
 }
@@ -882,6 +847,12 @@ body.cover-active {
   body::before {
     background-size: 420px auto;
   }
+  .decor-flower {
+    width: var(--flower-size-mobile, clamp(8rem, 32vw, 12rem));
+  }
+  .seam-flower {
+    width: var(--flower-size-mobile, clamp(9rem, 36vw, 14rem));
+  }
 }
 
 /* Styles below replace the per-element inline style="" attributes previously in index.html */
@@ -948,7 +919,7 @@ body.cover-active {
   color: rgb(67, 58, 55);
   font-weight: 500;
   font-style: normal;
-  font-size: 35px;
+  font-size: 25px;
 }
 
 [data-template-id="mandvo-time"],

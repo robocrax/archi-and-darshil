@@ -12,6 +12,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
+  // Nudges each flower up/down by a fraction of its distance from viewport centre as the page scrolls.
+  const parallaxFlowers = Array.from(document.querySelectorAll(".seam-flower, .decor-flower"));
+  if (parallaxFlowers.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let parallaxFrame = null;
+
+    const applyParallax = () => {
+      const viewportMid = window.innerHeight / 2;
+      parallaxFlowers.forEach((flower) => {
+        const speed = parseFloat(flower.dataset.parallaxSpeed) || 0.12;
+        const rect = flower.getBoundingClientRect();
+        const distance = viewportMid - (rect.top + rect.height / 2);
+        flower.style.setProperty("--parallax-y", `${(distance * speed).toFixed(1)}px`);
+      });
+      parallaxFrame = null;
+    };
+
+    const requestParallax = () => {
+      if (parallaxFrame === null) {
+        parallaxFrame = window.requestAnimationFrame(applyParallax);
+      }
+    };
+
+    applyParallax();
+    window.addEventListener("scroll", requestParallax, { passive: true });
+    window.addEventListener("resize", requestParallax);
+  }
+
   // EDIT WEDDING DATE HERE: use a local ISO date/time value for the ceremony countdown.
   const WEDDING_DATE = "2026-12-11T17:30:00+05:30";
   const targetDate = new Date(WEDDING_DATE).getTime();
