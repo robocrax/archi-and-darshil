@@ -12,7 +12,26 @@
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body data-template-id="__page-root">
+  <body data-template-id="__page-root" class="cover-active">
+    <div id="intro-cover" class="cover" role="dialog" aria-modal="true" aria-label="Wedding invitation cover">
+      <div class="intro-content">
+        <img
+          src="images/mono.svg"
+          alt="Archi &amp; Darshil monogram"
+          class="intro-monogram"
+        />
+        <p class="canva-text eyebrow">Archi &amp; Darshil</p>
+        <div class="fine-rule">✦</div>
+        <p class="canva-text intro-tagline">request the pleasure of your company</p>
+        <button
+          type="button"
+          id="open-invitation"
+          class="intro-open-button editorial-display"
+        >
+          Open Invitation
+        </button>
+      </div>
+    </div>
     <div class="font-picker">
       <label for="font-pairing-select" class="font-picker-label"
         >Font style</label
@@ -83,7 +102,15 @@
             </p>
           </div>
         </section>
-        <section id="events" class="section bg-[#f3e7de]/45">
+        <div class="section-seam" aria-hidden="true"></div>
+        <img
+  src="images/flower.svg"
+  alt=""
+  class="decor-flower"
+  data-parallax-speed="0.15"
+  style="top: -10%; left: -10%; --flower-size: 26rem; --flower-rotate: rotate(-20deg);"
+/>
+        <section id="events" class="section">
           <div class="content-width">
             <div class="reveal text-center">
               <p data-template-id="events-eyebrow" class="canva-text eyebrow">
@@ -176,7 +203,7 @@
                     data-template-id="sangeet-address"
                     class="canva-text event-place mt-1"
                   >
-                    Bhuj–Mandvi State Highway, Naranpar Ravli, Bhuj, India
+                    Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat 370430, India
                   </p>
                   <a
                     class="location-toggle mt-6"
@@ -189,6 +216,7 @@
               </article>
             </div>
           </div>
+          <div class="decor-flowers" aria-hidden="true"></div>
         </section>
         <section id="wedding" class="section">
           <div class="content-width">
@@ -261,8 +289,9 @@
                 </div>
                 <a
                   class="calendar-add-link"
-                  download="archi-darshil-wedding.ics"
-                  href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Archi %26 Darshil's Wedding%0ADTSTART:20261211T173000%0ADTEND:20261212T013000%0ALOCATION:Smruti Van%2C Bhuj%E2%80%93Mandvi State Highway%2C Naranpar Ravli%2C Bhuj%2C India%0AEND:VEVENT%0AEND:VCALENDAR"
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Archi+%26+Darshil%27s+Wedding&dates=20261211T023000Z/20261211T153000Z&ctz=Asia%2FKolkata&details=With+the+blessings+of+Lord+Swaminarayan%2C+we+begin+our+forever&location=Smruti+Van%2C+Bhuj-Mandvi+State+Highway+47%2C+Naranpar+Ravli%2C+Bhuj%2C+Gujarat+370430%2C+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >+ Add to calendar</a
                 >
               </div>
@@ -297,7 +326,7 @@
                   data-template-id="wedding-address"
                   class="canva-text event-place mt-1"
                 >
-                  Bhuj–Mandvi State Highway, Naranpar Ravli, Bhuj, India
+                  Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat 370430, India
                 </p>
                 <div class="wedding-venue-actions">
                   <a
@@ -311,6 +340,7 @@
               </div>
             </article>
           </div>
+          <div class="decor-flowers" aria-hidden="true"></div>
         </section>
         <section id="countdown" class="section">
           <div class="content-width reveal text-center">
@@ -391,9 +421,8 @@
             </div>
           </div>
         </section>
+        <div class="section-seam" aria-hidden="true"></div>
         <section class="section relative overflow-hidden">
-          <div class="hanging hanging-one"></div>
-          <div class="hanging hanging-two"></div>
           <div class="content-width reveal text-center">
             <div class="fine-rule mt-10">✦</div>
             <h2
@@ -434,6 +463,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="js/background-music.js"></script>
     <script src="js/font-pairings.js"></script>
+    <script src="js/intro-cover.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

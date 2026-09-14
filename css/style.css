@@ -19,10 +19,29 @@ html {
 body {
   margin: 0;
   width: 100%;
+  position: relative;
   color: var(--ink);
   font-family: var(--font-body);
   overflow-x: hidden;
   background: var(--ivory);
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: calc(100 * min(var(--vh, 1vh), 1vh));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/floral-bg.svg");
+  background-repeat: repeat;
+  background-size: 530px auto;
+  opacity: 0.45;
+  transform: scaleY(-1);
+  pointer-events: none;
+}
+body.cover-active {
+  overflow: hidden;
+  height: 100vh;
 }
 
 .editorial-display {
@@ -102,11 +121,51 @@ body {
   height: 1.2rem;
 }
 
+/* Sits on the border between two sections so the artwork bridges the seam. */
+.section-seam {
+  position: relative;
+  height: 0;
+  overflow: visible;
+}
+.seam-flower {
+  position: absolute;
+  top: 0;
+  width: clamp(12rem, 30vw, 20rem);
+  height: auto;
+  opacity: 0.55;
+  transform: translateY(calc(-50% + var(--parallax-y, 0px)));
+  pointer-events: none;
+  will-change: transform;
+}
+.seam-flower-right {
+  right: -0.5rem;
+  transform: translateY(calc(-50% + var(--parallax-y, 0px))) rotate(90deg);
+}
+.seam-flower-left {
+  left: -0.5rem;
+  transform: translateY(calc(-50% + var(--parallax-y, 0px))) scaleX(-1);
+}
+
+/* Large single flowers scattered behind card content within a section. */
+.decor-flowers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.decor-flower {
+  position: absolute;
+  width: var(--flower-size, clamp(15rem, 30vw, 32rem));
+  height: auto;
+  opacity: 0.4;
+  transform: translateY(var(--parallax-y, 0px)) var(--flower-rotate, );
+  will-change: transform;
+}
 .page-shell {
   width: 100%;
-  min-height: calc(90 * min(var(--vh, 1vh), 1vh));
+  min-height: calc(50 * min(var(--vh, 1vh), 1vh));
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background:
     radial-gradient(
       circle at 88% 11%,
@@ -117,14 +176,13 @@ body {
       circle at 8% 46%,
       rgba(230, 235, 226, 0.72),
       transparent 27rem
-    ),
-    var(--ivory);
+    );
 }
 
 .cover {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 100;
   display: grid;
   place-items: center;
   padding: 1.5rem;
@@ -144,20 +202,68 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
-.cover::before,
-.cover::after {
-  content: "";
-  position: absolute;
-  width: 23rem;
-  height: 23rem;
-  border: 1px solid rgba(170, 135, 81, 0.2);
-  border-radius: 50%;
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-.cover::before {
-  transform: translate(-40%, -34%);
+.intro-monogram {
+  width: min(15rem, 55vw);
+  height: auto;
+  margin: 0 auto 1.25rem;
+  display: block;
+  filter: drop-shadow(0 6px 18px rgba(91, 70, 50, 0.2));
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s ease;
 }
-.cover::after {
-  transform: translate(40%, 38%);
+.intro-tagline {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--sage);
+}
+.intro-open-button {
+  margin-top: 2rem;
+  padding: 0.85rem 2.4rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    opacity 0.5s ease;
+}
+.intro-open-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(91, 70, 50, 0.18);
+  background: var(--gold);
+  color: var(--ivory);
+}
+.intro-open-button:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 4px;
+}
+
+/* Seal-breaking sequence: monogram blooms outward, copy fades, then the whole veil dissolves via .cover.is-open above. */
+.cover.is-opening .intro-monogram {
+  transform: scale(1.4);
+  opacity: 0;
+}
+.cover.is-opening .intro-content > *:not(.intro-monogram) {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  opacity: 0;
+  transform: translateY(-14px);
 }
 
 .seal-button {
@@ -252,6 +358,8 @@ body {
 .content-width {
   width: min(100% - 2rem, 68rem);
   margin-inline: auto;
+  position: relative;
+  z-index: 1;
 }
 .section {
   padding: 5.25rem 0;
@@ -286,12 +394,13 @@ body {
 }
 
 .hero-welcome {
-  min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+  min-height: calc(85 * min(var(--vh, 1vh), 1vh));
   display: grid;
   place-items: center;
   overflow: hidden;
   isolation: isolate;
   background: #ead9cf;
+  padding: 0;
 }
 .hero-welcome::after {
   content: "";
@@ -311,7 +420,7 @@ body {
 }
 .hero-welcome-content {
   width: min(100% - 2rem, 48rem);
-  padding: 4rem 1rem;
+  padding: 1rem;
   text-align: center;
 }
 .hero-welcome-content .fine-rule {
@@ -662,6 +771,17 @@ body {
   .time-cell {
     min-width: 3.4rem;
     padding: 0.25rem 0.5rem;
+  }
+
+  .event-card {
+    text-align: center;
+  }
+
+  body::before {
+    background-size: 420px auto;
+  }
+  .decor-flower {
+    width: var(--flower-size-mobile, clamp(8rem, 32vw, 12rem));
   }
 }
 
