@@ -492,6 +492,7 @@ body.cover-active {
   --end-range: calc(var(--index) / var(--numcards) * 100%);
   position: sticky;
   top: 0;
+  box-shadow: 0 0.5rem 4rem rgba(20, 14, 10, 0.55);
   animation: linear stack-card-recede forwards;
   animation-timeline: --event-stack-scroll;
   animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
