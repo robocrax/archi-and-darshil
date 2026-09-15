@@ -1,53 +1,34 @@
-// Background music sourced from https://youtu.be/FkIw-wn2JeU
-const BG_MUSIC_VIDEO_ID = "FkIw-wn2JeU";
-let bgMusicPlayer;
+// Self-hosted background music (audio/bg-music.mp3, with audio/bg-music.mov as a fallback source).
+const BG_MUSIC_TARGET_VOLUME = 0.6;
+const BG_MUSIC_FADE_MS = 2500;
+const BG_MUSIC_FADE_STEP_MS = 100;
 
-// Assigned at top level (not inside DOMContentLoaded) so it is defined before
-// the YouTube IFrame API script finishes loading and calls it.
-window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
-  bgMusicPlayer = new YT.Player("bg-music-player", {
-    height: "0",
-    width: "0",
-    videoId: BG_MUSIC_VIDEO_ID,
-    playerVars: {
-      autoplay: 1,
-      mute: 1,
-      loop: 1,
-      playlist: BG_MUSIC_VIDEO_ID,
-      controls: 0,
-      playsinline: 1,
-    },
-    events: {
-      onReady: (event) => event.target.playVideo(),
-    },
+function fadeInBgMusic(audio) {
+  const steps = Math.round(BG_MUSIC_FADE_MS / BG_MUSIC_FADE_STEP_MS);
+  let step = 0;
+  audio.volume = 0;
+  const fadeInterval = window.setInterval(() => {
+    step += 1;
+    audio.volume = Math.min(BG_MUSIC_TARGET_VOLUME, (BG_MUSIC_TARGET_VOLUME * step) / steps);
+    if (step >= steps) window.clearInterval(fadeInterval);
+  }, BG_MUSIC_FADE_STEP_MS);
+}
+
+function startBgMusic(audio) {
+  if (!audio.paused) return;
+  fadeInBgMusic(audio);
+  audio.play().catch(() => {
+    // Autoplay with sound was blocked — resume on the very first interaction anywhere on the page,
+    // not just the "Open Invitation" button, so it isn't tied to one specific click.
+    const resume = () => audio.play().catch(() => {});
+    ["click", "touchstart", "keydown", "scroll"].forEach((type) =>
+      document.addEventListener(type, resume, { once: true, passive: true })
+    );
   });
-};
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("music-toggle");
-  if (!toggle) return;
-
-  toggle.addEventListener("click", () => {
-    if (!bgMusicPlayer || typeof bgMusicPlayer.isMuted !== "function") return;
-
-    // Queried live because lucide.createIcons() replaces the <i> icons with <svg> nodes after load.
-    const mutedIcon = toggle.querySelector(".music-icon-muted");
-    const unmutedIcon = toggle.querySelector(".music-icon-unmuted");
-
-    const isMuted = bgMusicPlayer.isMuted();
-    if (isMuted) {
-      bgMusicPlayer.unMute();
-      bgMusicPlayer.setVolume(60);
-      toggle.setAttribute("aria-pressed", "true");
-      toggle.setAttribute("aria-label", "Mute background music");
-      mutedIcon.classList.add("hidden");
-      unmutedIcon.classList.remove("hidden");
-    } else {
-      bgMusicPlayer.mute();
-      toggle.setAttribute("aria-pressed", "false");
-      toggle.setAttribute("aria-label", "Unmute background music");
-      mutedIcon.classList.remove("hidden");
-      unmutedIcon.classList.add("hidden");
-    }
-  });
+  const audio = document.getElementById("bg-music");
+  if (!audio) return;
+  startBgMusic(audio);
 });

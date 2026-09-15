@@ -6,8 +6,8 @@
   --gold: #aa8751;
   --ink: #433a37;
   --line: rgba(170, 135, 81, 0.36);
-  --font-display: "Playfair Display", serif;
-  --font-body: "Libre Baskerville", serif;
+  --font-display: "Cinzel Decorative", cursive;
+  --font-body: "Libre Bodoni", serif;
 }
 
 * {
@@ -32,81 +32,6 @@ body.cover-active {
 
 .editorial-display {
   font-family: var(--font-display);
-}
-
-.font-picker {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(251, 245, 235, 0.92);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 0.4rem 0.9rem;
-  box-shadow: 0 6px 20px rgba(91, 70, 50, 0.12);
-  opacity: 0;
-  pointer-events: none;
-}
-.font-picker-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--sage);
-  white-space: nowrap;
-}
-.font-picker-select {
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  padding: 0.3rem 1.6rem 0.3rem 0.7rem;
-  cursor: pointer;
-}
-.font-picker-select:focus-visible {
-  outline: 3px solid var(--sage);
-  outline-offset: 2px;
-}
-
-.bg-music-frame {
-  position: fixed;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.music-toggle {
-  position: fixed;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  z-index: 60;
-  display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  background: rgba(251, 245, 235, 0.92);
-  color: var(--gold);
-  box-shadow: 0 6px 20px rgba(91, 70, 50, 0.16);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.music-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(91, 70, 50, 0.22);
-}
-.music-toggle:focus-visible {
-  outline: 3px solid var(--sage);
-  outline-offset: 2px;
-}
-.music-icon {
-  width: 1.2rem;
-  height: 1.2rem;
 }
 
 .page-shell {
@@ -228,93 +153,9 @@ body.cover-active {
   transform: translateY(-14px);
 }
 
-.seal-button {
-  width: min(21rem, 88vw);
-  aspect-ratio: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  background: rgba(251, 245, 235, 0.84);
-  color: var(--ink);
-  box-shadow: 0 18px 50px rgba(91, 70, 50, 0.12);
-  cursor: pointer;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-.seal-button:hover {
-  transform: translateY(-5px) scale(1.015);
-  box-shadow: 0 24px 55px rgba(91, 70, 50, 0.18);
-}
-.seal-button:focus-visible,
-.location-toggle:focus-visible,
-.nav-link:focus-visible {
+.location-toggle:focus-visible {
   outline: 3px solid var(--sage);
   outline-offset: 4px;
-}
-.seal-button::before,
-.seal-button::after {
-  content: "✦";
-  position: absolute;
-  color: var(--gold);
-  font-size: 1rem;
-}
-.seal-button::before {
-  top: 2.25rem;
-}
-.seal-button::after {
-  bottom: 2.25rem;
-}
-
-.botanical {
-  position: absolute;
-  color: var(--sage);
-  opacity: 0.34;
-  pointer-events: none;
-}
-.botanical-left {
-  top: 2.5rem;
-  left: -1rem;
-  transform: rotate(-13deg);
-}
-.botanical-right {
-  top: 6rem;
-  right: -1.4rem;
-  transform: scaleX(-1) rotate(-12deg);
-}
-.hanging {
-  position: absolute;
-  top: 0;
-  width: 74px;
-  height: 220px;
-  opacity: 0.58;
-  pointer-events: none;
-}
-.hanging::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  height: 156px;
-  border-left: 1px solid var(--gold);
-}
-.hanging::after {
-  content: "✦";
-  position: absolute;
-  top: 147px;
-  left: calc(50% - 9px);
-  color: var(--gold);
-  font-size: 1.45rem;
-}
-.hanging-one {
-  left: 6%;
-}
-.hanging-two {
-  right: 9%;
-  height: 165px;
 }
 
 .content-width {
@@ -334,10 +175,22 @@ body.cover-active {
 }
 .closing-section {
   padding: 4rem 0 5rem;
-  min-height: calc(50 * min(var(--vh, 1vh), 1vh));
-  min-height: 50dvh;
+  min-height: calc(100 * min(var(--vh, 1vh), 1vh));
+  min-height: 100dvh;
   display: grid;
-  place-items: center;
+  align-items: start;
+  justify-items: center;
+  isolation: isolate;
+  padding-top: clamp(3rem, 18vh, 7rem);
+  box-shadow: 0 0.5rem 4rem rgba(20, 14, 10, 0.55);
+}
+/* Same scrim as .hero-welcome so the closing text stays legible over its background photo. */
+.closing-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(251, 245, 235, 0.78);
 }
 #wedding {
   min-height: 0;
@@ -377,11 +230,13 @@ body.cover-active {
   min-height: calc(90 * min(var(--vh, 1vh), 1vh));
   min-height: 100svh;
   display: grid;
-  place-items: center;
+  align-items: start;
+  justify-items: center;
   overflow: hidden;
   isolation: isolate;
   background: #ead9cf;
   padding: 0;
+  padding-top: clamp(3rem, 18vh, 4.85rem);
 }
 .hero-welcome::after {
   content: "";
@@ -390,14 +245,28 @@ body.cover-active {
   z-index: -1;
   background: rgba(251, 245, 235, 0.78);
 }
+/* Same width/height formula as .photo-card-image so the hero photo matches the event cards' dimensions. */
 .hero-welcome-image {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+}
+/* Blurred, oversized copy of the same photo fills the letterbox gaps left by object-fit: contain on wide/desktop screens. */
+.hero-welcome-image-blur {
+  position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: -3;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  filter: blur(40px) brightness(0.8) saturate(1.15);
+  transform: scale(1.15);
 }
 .hero-welcome-content {
   width: min(100% - 2rem, 48rem);
@@ -405,25 +274,29 @@ body.cover-active {
   text-align: center;
 }
 .hero-welcome-content .fine-rule {
-  margin-block: 1.7rem;
+  margin-block: 0.4rem;
 }
 .hero-welcome-content .welcome-verse {
   max-width: 36rem;
   margin-inline: auto;
 }
-.image-caption {
-  display: none;
-}
 
 .names {
-  font-size: clamp(2.8rem, 10vw, 5.6rem);
+  font-size: clamp(2.4rem, 8vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
 }
-.weds {
-  font-size: 1.35rem;
-  font-style: italic;
-  color: var(--gold);
+.couple-names-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 0.7rem;
+}
+.couple-name-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .event-card {
@@ -452,26 +325,11 @@ body.cover-active {
 .event-card > .event-location {
   margin-top: auto;
 }
-.date-tab {
-  display: inline-block;
-  color: var(--gold);
-  padding: 0.42rem 1.1rem;
-  background: transparent;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.72rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
 .event-title {
-  font-size: 35px;
   line-height: 1.22;
 }
 .event-place {
   color: var(--sage);
-  font-size: 0.8rem;
   line-height: 1.7;
 }
 
@@ -528,27 +386,16 @@ body.cover-active {
   object-fit: contain;
   transform: translate(-50%, -50%);
 }
-/* Darshil's Mandvo is built from separate cutout props layered over the alcove backdrop. */
-/* Locked to the backdrop's own aspect ratio so the layered props don't stretch/misalign on wide screens. */
-.mandvo-scene {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  width: auto;
-  aspect-ratio: 1200 / 1681;
-  max-width: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-.mandvo-bg {
+/* Blurred, oversized copy of the same photo fills the letterbox gaps left by object-fit: contain on wide/desktop screens. */
+.photo-card-image-blur {
   position: absolute;
   inset: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  filter: blur(40px) brightness(0.8) saturate(1.15);
+  transform: scale(1.15);
 }
 .photo-card-overlay {
   position: relative;
@@ -578,7 +425,7 @@ body.cover-active {
 }
 /* Scrim behind the wedding overlay text so it stays legible against the bright sky photo. */
 [data-template-id="wedding-photo-card"] .photo-card-overlay {
-  background: rgba(35, 27, 22, 0.42);
+  background: rgba(35, 27, 22, 0.65);
   border-radius: 18px;
 }
 [data-template-id="wedding-photo-card"] .photo-card-overlay .photo-card-time,
@@ -675,11 +522,6 @@ body.cover-active {
   color: var(--gold);
 }
 
-.location-card {
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid rgba(170, 135, 81, 0.35);
-  padding: 1.65rem 0;
-}
 .location-toggle {
   display: inline-block;
   border: 1px solid var(--sage);
@@ -794,12 +636,19 @@ body.cover-active {
   font-family: var(--font-display);
   font-size: 1.05rem;
   color: var(--ink);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  line-height: 1.5;
+  padding-bottom: 0.15rem;
+  width: 2rem;
+  height: 2rem;
 }
 .calendar-day.is-active .calendar-day-num {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  line-height: 1.95;
+  line-height: 1.5;
   padding-bottom: 0.15rem;
   width: 2rem;
   height: 2rem;
@@ -823,28 +672,6 @@ body.cover-active {
 .calendar-add-link:hover {
   color: var(--gold);
   border-color: var(--gold);
-}
-
-.wedding-schedule {
-  text-align: center;
-}
-.wedding-venue-row {
-  text-align: center;
-  margin-top: 1.8rem;
-  border-top: 1px solid rgba(170, 135, 81, 0.3);
-  padding-top: 1.6rem;
-}
-.wedding-venue-actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-.wedding-venue-actions a.location-toggle {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
 }
 
 .reveal {
@@ -891,17 +718,8 @@ body.cover-active {
   .section {
     padding: 7rem 0;
   }
-  .hero-frame img {
-    height: 30rem;
-  }
   .event-card {
     padding: 2.2rem;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
   }
 }
 
@@ -956,7 +774,6 @@ body.cover-active {
 [data-template-id="events-eyebrow"],
 [data-template-id="wedding-eyebrow"],
 [data-template-id="countdown-eyebrow"] {
-  color: rgb(130, 144, 125);
   font-weight: 700;
   font-style: normal;
   font-size: 11px;
@@ -975,36 +792,36 @@ body.cover-active {
 
 [data-template-id="bride-name"],
 [data-template-id="groom-name"] {
-  color: rgb(67, 58, 55);
+  color: #2b211d;
+  text-shadow: 0 0.5px 3px rgba(43, 33, 29, 0.55), 0 0px 0 rgba(255, 250, 243, 0);
 }
 
 [data-template-id="bride-family"],
 [data-template-id="groom-family"] {
-  color: rgb(130, 144, 125);
+  color: var(--ink);
   font-weight: 400;
   font-style: normal;
   font-size: 13px;
 }
 
 [data-template-id="weds-label"] {
-  color: rgb(170, 135, 81);
   font-weight: 400;
   font-style: italic;
-  font-size: 21px;
+  font-size: 16px;
 }
 
 [data-template-id="events-heading"],
 [data-template-id="wedding-title"],
 [data-template-id="countdown-heading"] {
-  color: rgb(67, 58, 55);
+  color: var(--ink);
   font-weight: 500;
   font-style: normal;
   font-size: 24px;
 }
 
 [data-template-id="day-one-date"] {
-  background: rgb(130, 144, 125);
-  color: rgb(255, 250, 243);
+  background: var(--sage);
+  color: #fffaf3;
   font-weight: 700;
   font-style: normal;
   font-size: 11px;
@@ -1014,7 +831,7 @@ body.cover-active {
 [data-template-id="archi-mandvo-title"],
 [data-template-id="sangeet-title"],
 [data-template-id="wedding-photo-title"] {
-  color: rgb(67, 58, 55);
+  color: var(--ink);
   font-weight: 500;
   font-style: normal;
   font-size: 35px;
@@ -1026,7 +843,6 @@ body.cover-active {
 [data-template-id="wedding-photo-time"],
 [data-template-id="jaan-agman-time"],
 [data-template-id="wedding-ceremony-time"] {
-  color: rgb(170, 135, 81);
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
@@ -1037,7 +853,6 @@ body.cover-active {
 [data-template-id="sangeet-venue"],
 [data-template-id="wedding-photo-venue"],
 [data-template-id="wedding-venue"] {
-  color: rgb(130, 144, 125);
   font-weight: 700;
   font-style: normal;
   font-size: 13px;
@@ -1048,11 +863,9 @@ body.cover-active {
 [data-template-id="sangeet-address"],
 [data-template-id="wedding-photo-address"],
 [data-template-id="wedding-address"] {
-  color: rgb(130, 144, 125);
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
-  line-height: 1.7;
 }
 
 [data-template-id="sangeet-description"] {
@@ -1064,7 +877,7 @@ body.cover-active {
 }
 
 [data-template-id="countdown-date-note"] {
-  color: rgb(130, 144, 125);
+  color: var(--sage);
   font-weight: 400;
   font-style: normal;
   font-size: 11px;
@@ -1075,7 +888,7 @@ body.cover-active {
 [data-template-id="hours-label"],
 [data-template-id="minutes-label"],
 [data-template-id="seconds-label"] {
-  color: rgb(130, 144, 125);
+  color: var(--sage);
   font-weight: 700;
   font-style: normal;
   font-size: 9px;
@@ -1083,21 +896,20 @@ body.cover-active {
 }
 
 [data-template-id="celebration-message"] {
-  color: rgb(170, 135, 81);
+  color: var(--gold);
   font-weight: 400;
   font-style: italic;
   font-size: 24px;
 }
 
 [data-template-id="closing-heading"] {
-  color: rgb(67, 58, 55);
+  color: var(--ink);
   font-weight: 500;
-  font-style: italic;
   font-size: 24px;
 }
 
 [data-template-id="closing-names"] {
-  color: rgb(130, 144, 125);
+  color: var(--sage);
   font-weight: 700;
   font-style: normal;
   font-size: 12px;
@@ -1105,7 +917,7 @@ body.cover-active {
 }
 
 [data-template-id="footer-text"] {
-  color: rgb(170, 135, 81);
+  color: var(--gold);
   font-weight: 400;
   font-style: normal;
   font-size: 9px;

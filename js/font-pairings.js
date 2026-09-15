@@ -1,10 +1,9 @@
 // Wedding font pairings, taken directly from
 // https://www.figma.com/resource-library/wedding-font-pairings/
-// "classic" matches the site's original default look (closest to Pairing 9:
-// Playfair Display SC + Libre Baskerville) and is already loaded in index.html.
+// "classic" was the site's original default look (Pairing 9: Playfair Display SC + Libre Baskerville).
 const FONT_PAIRINGS = {
   classic: {
-    label: "Classic Elegance (default)",
+    label: "Classic Elegance",
     display: '"Playfair Display", serif',
     body: '"Libre Baskerville", serif',
     googleFontsHref: null,
@@ -101,11 +100,11 @@ const FONT_PAIRINGS = {
       "https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Baskervville:ital,wght@0,400;1,400&display=swap",
   },
   grandLuxury: {
-    label: "Grand Luxury — Cinzel Decorative + Libre Bodoni",
+    label: "Grand Luxury — Cinzel Decorative + Libre Bodoni (default)",
     display: '"Cinzel Decorative", cursive',
     body: '"Libre Bodoni", serif',
-    googleFontsHref:
-      "https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;1,400&display=swap",
+    // Already loaded in index.html since it's the default pairing.
+    googleFontsHref: null,
   },
   beachBreeze: {
     label: "Beach Breeze — Pacifico + Lato",
@@ -197,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     select.appendChild(option);
   });
 
-  const saved = localStorage.getItem(STORAGE_KEY) || "classic";
+  const saved = localStorage.getItem(STORAGE_KEY) || "grandLuxury";
   select.value = saved;
   applyFontPairing(saved);
 

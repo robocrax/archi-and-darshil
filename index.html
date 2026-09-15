@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Cinzel+Decorative:wght@400;700;900&amp;family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -32,15 +32,20 @@
         </button>
       </div>
     </div>
-    <div class="font-picker">
-      <label for="font-pairing-select" class="font-picker-label"
-        >Font style</label
-      >
-      <select id="font-pairing-select" class="font-picker-select"></select>
-    </div>
     <div class="page-shell">
       <main id="main-content">
         <section id="invitation" class="section hero-welcome relative">
+          <img
+            src="images/hero.JPG"
+            alt=""
+            class="hero-welcome-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/hero.JPG"
+            alt="Archi and Darshil"
+            class="hero-welcome-image"
+          />
           <div class="hero-welcome-content reveal">
             <img
               src="images/ganesh.svg"
@@ -68,38 +73,44 @@
             </p>
             <p
               data-template-id="invitation-intro"
-              class="canva-text mt-8 text-sm leading-7 text-[#665a54] hero-reveal-item"
+              class="canva-text mt-4 text-sm leading-7 text-[#665a54] hero-reveal-item"
             >
               We request the honour of your presence as we celebrate the wedding
               of
             </p>
-            <p
-              data-template-id="bride-name"
-              class="canva-text names editorial-display mt-8 hero-reveal-item"
-            >
-              Archi
-            </p>
-            <p
-              data-template-id="bride-family"
-              class="canva-text mt-2 text-sm text-[#82907d] hero-reveal-item"
-            >
-              D/o Kanta and Lalji Meghani
-            </p>
-            <p data-template-id="weds-label" class="canva-text weds mt-5 hero-reveal-item">
-              Weds
-            </p>
-            <p
-              data-template-id="groom-name"
-              class="canva-text names editorial-display mt-5 hero-reveal-item"
-            >
-              Darshil
-            </p>
-            <p
-              data-template-id="groom-family"
-              class="canva-text mt-2 text-sm text-[#82907d] hero-reveal-item"
-            >
-              S/o Nanita and Ravji Halai
-            </p>
+            <div class="couple-names-row mt-6 hero-reveal-item">
+              <div class="couple-name-col">
+                <p
+                  data-template-id="bride-name"
+                  class="canva-text names editorial-display"
+                >
+                  Archi
+                </p>
+                <p
+                  data-template-id="bride-family"
+                  class="canva-text text-sm"
+                >
+                  D/o Kanta and Lalji Meghani
+                </p>
+              </div>
+              <p data-template-id="weds-label" class="canva-text">
+                &
+              </p>
+              <div class="couple-name-col">
+                <p
+                  data-template-id="groom-name"
+                  class="canva-text names editorial-display"
+                >
+                  Darshil
+                </p>
+                <p
+                  data-template-id="groom-family"
+                  class="canva-text text-sm"
+                >
+                  S/o Nanita and Ravji Halai
+                </p>
+              </div>
+            </div>
           </div>
         </section>
         <div id="event-stack" style="--numcards: 4;">
@@ -108,6 +119,12 @@
           class="section event-photo-section stack-card"
           style="--index: 1;"
         >
+          <img
+            src="images/darshil_mandvo.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
+          />
           <img
             src="images/darshil_mandvo.jpg"
             alt="Darshil's Mandvo ceremony"
@@ -145,7 +162,7 @@
                 data-template-id="mandvo-address"
                 class="canva-text event-place mt-1"
               >
-                Mandvi–Bhuj Highway, Bhuj, India
+                SH-47, Bhuj-Mandvi Highway, Near Dahinsara, Bhuj, Gujarat
               </p>
               <a
                 class="location-toggle mt-6"
@@ -157,63 +174,18 @@
             </div>
           </div>
         </section>
+        
         <section
-          data-template-id="archi-mandvo-card"
+          data-template-id="sangeet-card"
           class="section event-photo-section stack-card"
           style="--index: 2;"
         >
           <img
-            src="images/archi_mandvo.jpg"
-            alt="Archi's Mandvo ceremony"
-            class="photo-card-image"
-            loading="lazy"
+            src="images/sangeet.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
           />
-          <div class="photo-card-overlay reveal">
-            <h3
-              data-template-id="archi-mandvo-title"
-              class="canva-text editorial-display event-title"
-            >
-              Archi’s Mandvo
-            </h3>
-            <p
-              data-template-id="archi-mandvo-time"
-              class="canva-text mt-3 text-sm photo-card-time"
-            >
-              11th December 2026</p>
-            <p class="canva-text mt-3 text-sm photo-card-time">
-              Ganesh Sthapan 8:00 AM </p>
-            <p class="canva-text mt-3 text-sm photo-card-time">
-              Mandap Mahurat 9:30 AM
-            </p>
-            <div class="event-location">
-              <div class="my-5 photo-card-divider"></div>
-              <p
-                data-template-id="archi-mandvo-venue"
-                class="canva-text event-place font-bold"
-              >
-                📍 Smruti Van
-              </p>
-              <p
-                data-template-id="archi-mandvo-address"
-                class="canva-text event-place mt-1"
-              >
-                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat 370430, India
-              </p>
-              <a
-                class="location-toggle mt-6"
-                href="https://www.google.com/maps/search/?api=1&query=Smruti+Van+Bhuj+India"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Get directions</a
-              >
-            </div>
-          </div>
-        </section>
-        <section
-          data-template-id="sangeet-card"
-          class="section event-photo-section stack-card"
-          style="--index: 3;"
-        >
           <img
             src="images/sangeet.jpg"
             alt="Sangeet celebration"
@@ -225,7 +197,7 @@
               data-template-id="sangeet-title"
               class="canva-text editorial-display event-title"
             >
-              Sangeet Celebration
+              Sangeet Night
             </h3>
             <p
               data-template-id="sangeet-time"
@@ -257,11 +229,11 @@
                 data-template-id="sangeet-address"
                 class="canva-text event-place mt-1"
               >
-                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat 370430, India
+                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat
               </p>
               <a
                 class="location-toggle mt-6"
-                href="https://www.google.com/maps/search/?api=1&query=Smruti+Van+Bhuj+India"
+                href="https://maps.app.goo.gl/fsWYBHZigwP9VD2w7"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Get directions</a
@@ -269,11 +241,75 @@
             </div>
           </div>
         </section>
+
+        <section
+          data-template-id="archi-mandvo-card"
+          class="section event-photo-section stack-card"
+          style="--index: 3;"
+        >
+          <img
+            src="images/archi_mandvo.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/archi_mandvo.jpg"
+            alt="Archi's Mandvo ceremony"
+            class="photo-card-image"
+            loading="lazy"
+          />
+          <div class="photo-card-overlay reveal">
+            <h3
+              data-template-id="archi-mandvo-title"
+              class="canva-text editorial-display event-title"
+            >
+              Archi’s Mandvo
+            </h3>
+            <p
+              data-template-id="archi-mandvo-time"
+              class="canva-text mt-3 text-sm photo-card-time"
+            >
+              11th December 2026</p>
+            <p class="canva-text mt-3 text-sm photo-card-time">
+              8:00 AM Onwards
+            </p>
+            <div class="event-location">
+              <div class="my-5 photo-card-divider"></div>
+              <p
+                data-template-id="archi-mandvo-venue"
+                class="canva-text event-place font-bold"
+              >
+                📍 Smruti Van
+              </p>
+              <p
+                data-template-id="archi-mandvo-address"
+                class="canva-text event-place mt-1"
+              >
+                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat
+              </p>
+              <a
+                class="location-toggle mt-6"
+                href="https://maps.app.goo.gl/fsWYBHZigwP9VD2w7"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Get directions</a
+              >
+            </div>
+          </div>
+        </section>
+
         <section
           data-template-id="wedding-photo-card"
           class="section event-photo-section stack-card"
           style="--index: 4;"
         >
+          <img
+            src="images/wedding.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
+          />
           <img
             src="images/wedding.jpg"
             alt="Wedding ceremony"
@@ -285,19 +321,19 @@
               data-template-id="wedding-photo-title"
               class="canva-text editorial-display event-title"
             >
-              Wedding Ceremony
+              Wedding
             </h3>
             <p
               data-template-id="wedding-photo-time"
               class="canva-text mt-3 text-sm photo-card-time"
             >
-              Friday, 11th December 2026
+              11th December 2026
             </p>
             <p
               data-template-id="jaan-agman-time"
               class="canva-text mt-2 text-sm photo-card-time"
             >
-              Jaan Agman — 5:00 PM
+              Jaan Aagman — 5:00 PM
             </p>
             <p
               data-template-id="wedding-ceremony-time"
@@ -317,15 +353,16 @@
                 data-template-id="wedding-photo-address"
                 class="canva-text event-place mt-1"
               >
-                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat 370430, India
+                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat
               </p>
               <a
                 class="location-toggle mt-6"
-                href="https://www.google.com/maps/search/?api=1&query=Smruti+Van+Bhuj+India"
+                href="https://maps.app.goo.gl/fsWYBHZigwP9VD2w7"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Get directions</a
               >
+              </p>
             </div>
           </div>
         </section>
@@ -490,46 +527,41 @@
           </div>
         </section>
         <section class="section closing-section relative overflow-hidden">
-          <div class="content-width reveal text-center">
-            <div class="fine-rule mt-10">✦</div>
+          <img
+            src="images/hero.JPG"
+            alt=""
+            class="hero-welcome-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/hero.JPG"
+            alt="Archi and Darshil"
+            class="hero-welcome-image"
+          />
+          <div class="content-width reveal text-center pt-28">
+            <div class="fine-rule">✦</div>
             <h2
               data-template-id="closing-heading"
-              class="canva-text editorial-display mt-8 text-4xl italic"
+              class="canva-text editorial-display mt-6 text-4xl"
             >
               Awaiting your noble presence
             </h2>
             <p
               data-template-id="closing-names"
-              class="canva-text mt-5 text-sm uppercase tracking-[.17em] text-[#82907d]"
+              class="canva-text mt-5 text-md uppercase tracking-[.17em] text-[#82907d]"
             >
               With love Archi and Darshil
             </p>
+            <div class="fine-rule mt-8 ">✦</div>
           </div>
         </section>
       </main>
-      <footer class="border-t border-[#aa8751]/25 py-7 text-center">
-        <p
-          data-template-id="footer-text"
-          class="canva-text text-[.6rem] uppercase tracking-[.17em] text-[#aa8751]"
-        >
-          Archi &amp; Darshil · 2026
-        </p>
-      </footer>
     </div>
-    <div id="bg-music-player" class="bg-music-frame" aria-hidden="true"></div>
-    <button
-      id="music-toggle"
-      class="music-toggle"
-      type="button"
-      aria-pressed="false"
-      aria-label="Unmute background music"
-    >
-      <i data-lucide="volume-x" class="music-icon music-icon-muted"></i>
-      <i data-lucide="volume-2" class="music-icon music-icon-unmuted hidden"></i>
-    </button>
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <audio id="bg-music" loop preload="auto" aria-hidden="true">
+      <source src="audio/bg-music.mp3" type="audio/mpeg" />
+      <source src="audio/bg-music.mov" type="video/quicktime" />
+    </audio>
     <script src="js/background-music.js"></script>
-    <script src="js/font-pairings.js"></script>
     <script src="js/intro-cover.js"></script>
     <script src="js/script.js"></script>
   </body>
