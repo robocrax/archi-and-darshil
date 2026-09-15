@@ -22,7 +22,7 @@ body {
   position: relative;
   color: var(--ink);
   font-family: var(--font-body);
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--ivory);
 }
 body.cover-active {
@@ -114,7 +114,7 @@ body.cover-active {
   min-height: calc(50 * min(var(--vh, 1vh), 1vh));
   min-height: 50dvh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(
       circle at 88% 11%,
@@ -477,6 +477,30 @@ body.cover-active {
 
 /* Image-backed cards: photo fills the card, details sit in a scrim anchored to the bottom. */
 /* Standalone full-height page: the whole ceremony photo is shown at full viewport height, centered. */
+/* All 4 cards share one containing block so their sticky ranges overlap correctly: each card sticks at
+   top:0 as soon as it scrolls into place and stays there (covered by the next card) until the whole
+   stack finishes scrolling, instead of unsticking before the next card arrives. */
+#event-stack {
+  position: relative;
+  view-timeline-name: --event-stack-scroll;
+}
+.stack-card {
+  --index0: calc(var(--index) - 1);
+  --reverse-index: calc(var(--numcards) - var(--index0));
+  --reverse-index0: calc(var(--reverse-index) - 1);
+  --start-range: calc(var(--index0) / var(--numcards) * 100%);
+  --end-range: calc(var(--index) / var(--numcards) * 100%);
+  position: sticky;
+  top: 0;
+  animation: linear stack-card-recede forwards;
+  animation-timeline: --event-stack-scroll;
+  animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+}
+@keyframes stack-card-recede {
+  to {
+    transform: scale(calc(1 - 0.04 * var(--reverse-index0)));
+  }
+}
 .event-photo-section {
   padding: 0;
   position: relative;
@@ -486,6 +510,11 @@ body.cover-active {
   justify-content: center;
   text-align: center;
   background: var(--ivory);
+}
+/* Higher specificity than .event-photo-section's position:relative so sticky actually wins the cascade. */
+.event-photo-section.stack-card {
+  position: sticky;
+  top: 0;
 }
 .photo-card-image {
   position: absolute;
