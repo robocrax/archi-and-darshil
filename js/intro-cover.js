@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cover.classList.add("is-opening");
     document.body.classList.remove("cover-active");
 
-    window.setTimeout(() => cover.classList.add("is-open"), 450);
+    window.setTimeout(() => cover.classList.add("is-open"), 1750);
 
     cover.addEventListener(
       "transitionend",
