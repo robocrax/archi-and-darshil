@@ -85,8 +85,8 @@ body.cover-active {
   animation: cover-fadein 1s ease forwards;
 }
 .intro-monogram {
-  width: min(15rem, 55vw);
-  height: auto;
+  width: 206px;
+  height: 240px;
   margin: 0 auto 1.25rem;
   display: block;
   filter: drop-shadow(0 4px 2px rgba(91, 70, 50, 0.7));
