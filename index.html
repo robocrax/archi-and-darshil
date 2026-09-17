@@ -34,7 +34,8 @@
     </div>
     <div class="page-shell">
       <main id="main-content">
-        <section id="invitation" class="section hero-welcome relative">
+        <div id="event-stack" style="--numcards: 5;">
+        <section id="invitation" class="section hero-welcome relative stack-card" style="--index: 1;">
           <img
             src="images/hero.JPG"
             alt=""
@@ -42,7 +43,7 @@
             aria-hidden="true"
           />
           <img
-            src="images/hero.JPG"
+            src="images/hero-bg-2.PNG"
             alt="Archi and Darshil"
             class="hero-welcome-image"
           />
@@ -79,45 +80,40 @@
               of
             </p>
             <div class="couple-names-row mt-6 hero-reveal-item">
-              <div class="couple-name-col">
-                <p
-                  data-template-id="bride-name"
-                  class="canva-text names editorial-display"
-                >
-                  Archi
-                </p>
-                <p
-                  data-template-id="bride-family"
-                  class="canva-text text-sm"
-                >
-                  D/o Kanta and Lalji Meghani
-                </p>
-              </div>
-              <p data-template-id="weds-label" class="canva-text">
+              <p
+                data-template-id="bride-name"
+                class="canva-text names editorial-display"
+              >
+                Archi
+              </p>
+              <p
+                data-template-id="bride-family"
+                class="canva-text text-sm"
+              >
+                D/o Kanta and Lalji Meghani
+              </p>
+              <p data-template-id="weds-label" class="canva-text names-ampersand editorial-display">
                 &
               </p>
-              <div class="couple-name-col">
-                <p
-                  data-template-id="groom-name"
-                  class="canva-text names editorial-display"
-                >
-                  Darshil
-                </p>
-                <p
-                  data-template-id="groom-family"
-                  class="canva-text text-sm"
-                >
-                  S/o Nanita and Ravji Halai
-                </p>
-              </div>
+              <p
+                data-template-id="groom-name"
+                class="canva-text names editorial-display"
+              >
+                Darshil
+              </p>
+              <p
+                data-template-id="groom-family"
+                class="canva-text text-sm"
+              >
+                S/o Nanita and Ravji Halai
+              </p>
             </div>
           </div>
         </section>
-        <div id="event-stack" style="--numcards: 4;">
         <section
           data-template-id="mandvo-card"
           class="section event-photo-section stack-card"
-          style="--index: 1;"
+          style="--index: 2;"
         >
           <img
             src="images/darshil_mandvo.jpg"
@@ -178,7 +174,7 @@
         <section
           data-template-id="sangeet-card"
           class="section event-photo-section stack-card"
-          style="--index: 2;"
+          style="--index: 3;"
         >
           <img
             src="images/sangeet.jpg"
@@ -245,7 +241,7 @@
         <section
           data-template-id="archi-mandvo-card"
           class="section event-photo-section stack-card"
-          style="--index: 3;"
+          style="--index: 4;"
         >
           <img
             src="images/archi_mandvo.jpg"
@@ -272,7 +268,7 @@
             >
               11th December 2026</p>
             <p class="canva-text mt-3 text-sm photo-card-time">
-              8:00 AM Onwards
+              8:00 AM onwards
             </p>
             <div class="event-location">
               <div class="my-5 photo-card-divider"></div>
@@ -302,7 +298,7 @@
         <section
           data-template-id="wedding-photo-card"
           class="section event-photo-section stack-card"
-          style="--index: 4;"
+          style="--index: 5;"
         >
           <img
             src="images/wedding.jpg"
@@ -447,27 +443,23 @@
             </article>
           </div>
         </section>
-        <section id="countdown" class="section">
+        <section class="section closing-section relative overflow-hidden">
+          <img
+            src="images/hero.JPG"
+            alt=""
+            class="hero-welcome-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/hero-bg-2.PNG"
+            alt="Archi and Darshil"
+            class="hero-welcome-image"
+          />
           <div class="content-width reveal text-center">
-            <p data-template-id="countdown-eyebrow" class="canva-text eyebrow">
-              Save the moment
-            </p>
-            <h2
-              data-template-id="countdown-heading"
-              class="canva-text editorial-display mt-3 text-4xl"
-            >
-              Wedding countdown
-            </h2>
-            <p
-              data-template-id="countdown-date-note"
-              class="canva-text mt-4 text-xs uppercase tracking-[.13em] text-[#82907d]"
-            >
-              Until 11 December 2026
-            </p>
             <div class="fine-rule">✦</div>
             <div
               id="countdown-panel"
-              class="countdown-box mx-auto mt-10 max-w-2xl"
+              class="countdown-box mx-auto max-w-2xl"
             >
               <div id="time-grid" class="flex justify-center">
                 <div class="time-cell">
@@ -524,25 +516,9 @@
                 The celebration has begun
               </p>
             </div>
-          </div>
-        </section>
-        <section class="section closing-section relative overflow-hidden">
-          <img
-            src="images/hero.JPG"
-            alt=""
-            class="hero-welcome-image-blur"
-            aria-hidden="true"
-          />
-          <img
-            src="images/hero.JPG"
-            alt="Archi and Darshil"
-            class="hero-welcome-image"
-          />
-          <div class="content-width reveal text-center pt-28">
-            <div class="fine-rule">✦</div>
             <h2
               data-template-id="closing-heading"
-              class="canva-text editorial-display mt-6 text-4xl"
+              class="canva-text editorial-display mt-4 text-3xl"
             >
               Awaiting your noble presence
             </h2>
