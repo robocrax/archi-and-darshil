@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Archi &amp; Darshil | Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Cinzel+Decorative:wght@400;700;900&amp;family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body data-template-id="__page-root" class="cover-active">
+    <div id="intro-cover" class="cover" role="dialog" aria-modal="true" aria-label="Wedding invitation cover">
+      <div class="intro-content">
+        <img
+          src="images/mono.svg"
+          alt="Archi &amp; Darshil monogram"
+          class="intro-monogram"
+        />
+        <p class="canva-text eyebrow">Archi &amp; Darshil</p>
+        <div class="fine-rule">✦</div>
+        <p class="canva-text intro-tagline">request the pleasure of your company</p>
+        <button
+          type="button"
+          id="open-invitation"
+          class="intro-open-button editorial-display"
+        >
+          Open Invitation
+        </button>
+      </div>
+    </div>
+    <div class="page-shell">
+      <main id="main-content">
+        <div id="event-stack" style="--numcards: 4;">
+        <section id="invitation" class="section hero-welcome relative stack-card" style="--index: 1;">
+          <img
+            src="images/hero.JPG"
+            alt=""
+            class="hero-welcome-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/hero-bg-2.PNG"
+            alt="Archi and Darshil"
+            class="hero-welcome-image"
+          />
+          <div class="hero-welcome-content reveal">
+            <img
+              src="images/ganesh.svg"
+              class="ganesh-icon hero-reveal-item"
+              alt="Lord Ganesh illustration"
+            />
+            <p
+              data-template-id="welcome-greeting"
+              class="canva-text eyebrow hero-reveal-item"
+            >
+              Jay Shree Swaminarayan
+            </p>
+            <div class="fine-rule hero-reveal-item">✦</div>
+            <p
+              data-template-id="sanskrit-verse-line-one"
+              class="canva-text welcome-verse text-sm leading-7 text-[#665a54] hero-reveal-item"
+            >
+              मंगलम् भगवान विष्णुः, मंगलम् गरुणध्वजः।
+            </p>
+            <p
+              data-template-id="sanskrit-verse-line-two"
+              class="canva-text welcome-verse text-sm leading-7 text-[#665a54] hero-reveal-item"
+            >
+              मंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः॥
+            </p>
+            <p
+              data-template-id="invitation-intro"
+              class="canva-text mt-4 text-sm leading-7 text-[#665a54] hero-reveal-item"
+            >
+              We request the honour of your presence as we celebrate the wedding
+              of
+            </p>
+            <div class="couple-names-row mt-6 hero-reveal-item">
+              <p
+                data-template-id="bride-name"
+                class="canva-text names editorial-display"
+              >
+                Archi
+              </p>
+              <p
+                data-template-id="bride-family"
+                class="canva-text text-sm"
+              >
+                D/o Kanta and Lalji Meghani
+              </p>
+              <p data-template-id="weds-label" class="canva-text names-ampersand editorial-display">
+                &
+              </p>
+              <p
+                data-template-id="groom-name"
+                class="canva-text names editorial-display"
+              >
+                Darshil
+              </p>
+              <p
+                data-template-id="groom-family"
+                class="canva-text text-sm"
+              >
+                S/o Nanita and Ravji Halai
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          data-template-id="mandvo-card"
+          class="section event-photo-section stack-card"
+          style="--index: 2;"
+        >
+          <img
+            src="images/darshil_mandvo.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/darshil_mandvo.jpg"
+            alt="Darshil's Mandvo ceremony"
+            class="photo-card-image"
+            loading="lazy"
+          />
+          <div class="photo-card-overlay reveal">
+            <h3
+              data-template-id="mandvo-title"
+              class="canva-text editorial-display event-title"
+            >
+              Darshil’s Mandvo
+            </h3>
+            <p
+              data-template-id="mandvo-time"
+              class="canva-text mt-3 text-sm photo-card-time"
+            >
+              10th December 2026
+            </p>
+            <p
+              data-template-id="mandvo-time"
+              class="canva-text mt-3 text-sm photo-card-time"
+            >
+              8:30 AM onwards
+            </p>
+            <div class="event-location">
+              <div class="my-5 photo-card-divider"></div>
+              <p
+                data-template-id="mandvo-venue"
+                class="canva-text event-place font-bold"
+              >
+                📍 Pride Rock Resort
+              </p>
+              <p
+                data-template-id="mandvo-address"
+                class="canva-text event-place mt-1"
+              >
+                SH-47, Bhuj-Mandvi Highway, Near Dahinsara, Bhuj, Gujarat
+              </p>
+              <a
+                class="location-toggle mt-6"
+                href="https://www.google.com/maps/search/?api=1&query=Pride+Rock+Resort+Bhuj+India"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Get directions</a
+              >
+            </div>
+          </div>
+        </section>
+        
+        <section
+          data-template-id="sangeet-card"
+          class="section event-photo-section stack-card"
+          style="--index: 3;"
+        >
+          <img
+            src="images/sangeet.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/sangeet.jpg"
+            alt="Sangeet celebration"
+            class="photo-card-image"
+            loading="lazy"
+          />
+          <div class="photo-card-overlay reveal">
+            <h3
+              data-template-id="sangeet-title"
+              class="canva-text editorial-display event-title"
+            >
+              Sangeet Night
+            </h3>
+            <p
+              data-template-id="sangeet-time"
+              class="canva-text mt-3 text-sm photo-card-time"
+            >
+              10th December 2026
+              </p>
+            <p
+              data-template-id="sangeet-time"
+              class="canva-text mt-1 text-sm photo-card-time"
+            >
+              5:00 PM onwards
+            </p>
+            <p
+              data-template-id="sangeet-description"
+              class="canva-text mt-3 text-xs leading-6 photo-card-description"
+            >
+              Please join us for an evening of music, dance and celebration.
+            </p>
+            <div class="event-location">
+              <div class="my-5 photo-card-divider"></div>
+              <p
+                data-template-id="sangeet-venue"
+                class="canva-text event-place font-bold"
+              >
+                📍 Smruti Van
+              </p>
+              <p
+                data-template-id="sangeet-address"
+                class="canva-text event-place mt-1"
+              >
+                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat
+              </p>
+              <a
+                class="location-toggle mt-6"
+                href="https://maps.app.goo.gl/fsWYBHZigwP9VD2w7"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Get directions</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section
+          data-template-id="wedding-photo-card"
+          class="section event-photo-section stack-card"
+          style="--index: 4;"
+        >
+          <img
+            src="images/wedding.jpg"
+            alt=""
+            class="photo-card-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/wedding.jpg"
+            alt="Wedding ceremony"
+            class="photo-card-image"
+            loading="lazy"
+          />
+          <div class="photo-card-overlay reveal">
+            <h3
+              data-template-id="wedding-photo-title"
+              class="canva-text editorial-display event-title"
+            >
+              Wedding
+            </h3>
+            <p
+              data-template-id="wedding-photo-time"
+              class="canva-text mt-3 text-sm photo-card-time"
+            >
+              11th December 2026
+            </p>
+            <p
+              data-template-id="jaan-agman-time"
+              class="canva-text mt-2 text-sm photo-card-time"
+            >
+              Jaan Aagman — 5:00 PM
+            </p>
+            <p
+              data-template-id="wedding-ceremony-time"
+              class="canva-text mt-1 text-sm photo-card-time"
+            >
+              Wedding Ceremony — 5:30 PM
+            </p>
+            <div class="event-location">
+              <div class="my-5 photo-card-divider"></div>
+              <p
+                data-template-id="wedding-photo-venue"
+                class="canva-text event-place font-bold"
+              >
+                📍 Smruti Van
+              </p>
+              <p
+                data-template-id="wedding-photo-address"
+                class="canva-text event-place mt-1"
+              >
+                Bhuj-Mandvi State Highway 47, Naranpar Ravli, Bhuj, Gujarat
+              </p>
+              <a
+                class="location-toggle mt-6"
+                href="https://maps.app.goo.gl/fsWYBHZigwP9VD2w7"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Get directions</a
+              >
+              </p>
+            </div>
+          </div>
+        </section>
+        </div>
+
+        <section id="wedding" class="section relative overflow-hidden">
+          <img
+            src="images/mandala-bg.jpg"
+            alt="Archi and Darshil"
+            class="photo-card-image absolute w-full h-full object-cover z-0 opacity-25"
+          />
+          <div class="content-width">
+            <div class="reveal text-center">
+              <p data-template-id="wedding-eyebrow" class="canva-text eyebrow">
+                Save the date
+              </p>
+              <h2
+                data-template-id="wedding-title"
+                class="canva-text editorial-display mt-3 text-4xl"
+              >
+                Wedding Details
+              </h2>
+              <div class="fine-rule">✦</div>
+            </div>
+            <article
+              data-template-id="wedding-card"
+              class="canva-card event-card reveal mx-auto mt-8 max-w-3xl"
+            >
+              <div class="wedding-date-row">
+                <p data-template-id="wedding-day" class="wedding-day">Friday</p>
+                <div class="wedding-date-divider"></div>
+                <div>
+                  <p
+                    data-template-id="wedding-date-big"
+                    class="wedding-date-big"
+                  >
+                    11 Dec 2026
+                  </p>
+                  <p
+                    data-template-id="wedding-description"
+                    class="wedding-date-tagline"
+                  >
+                    With the blessings of Lord Swaminarayan, we begin our
+                    forever
+                  </p>
+                </div>
+              </div>
+              <div class="calendar-strip">
+                <p class="calendar-month">December 2026</p>
+                <div class="calendar-days">
+                  <div class="calendar-day">
+                    <span class="calendar-day-name">Tue</span
+                    ><span class="calendar-day-num">8</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="calendar-day-name">Wed</span
+                    ><span class="calendar-day-num">9</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="calendar-day-name">Thu</span
+                    ><span class="calendar-day-num">10</span>
+                  </div>
+                  <div class="calendar-day is-active">
+                    <span class="calendar-day-name">Fri</span
+                    ><span class="calendar-day-num">11</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="calendar-day-name">Sat</span
+                    ><span class="calendar-day-num">12</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="calendar-day-name">Sun</span
+                    ><span class="calendar-day-num">13</span>
+                  </div>
+                  <div class="calendar-day">
+                    <span class="calendar-day-name">Mon</span
+                    ><span class="calendar-day-num">14</span>
+                  </div>
+                </div>
+                <a
+                  class="calendar-add-link"
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Archi+%26+Darshil%27s+Wedding&dates=20261211T023000Z/20261211T153000Z&ctz=Asia%2FKolkata&details=With+the+blessings+of+Lord+Swaminarayan%2C+we+begin+our+forever&location=Smruti+Van%2C+Bhuj-Mandvi+State+Highway+47%2C+Naranpar+Ravli%2C+Bhuj%2C+Gujarat+370430%2C+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >+ Add to calendar</a
+                >
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="section closing-section relative overflow-hidden pt-20">
+          <img
+            src="images/hero.JPG"
+            alt=""
+            class="hero-welcome-image-blur"
+            aria-hidden="true"
+          />
+          <img
+            src="images/hero-bg-2.PNG"
+            alt="Archi and Darshil"
+            class="hero-welcome-image"
+          />
+          <div class="content-width reveal text-center flex flex-col items-center justify-center h-full">
+            <div class="fine-rule">✦</div>
+            <div
+              id="countdown-panel"
+              class="countdown-box max-w-3xl"
+            >
+              <div id="time-grid" class="justify-center">
+                <div class="time-cell">
+                  <p id="days-value" class="time-number" aria-live="polite">
+                    00
+                  </p>
+                  <p
+                    data-template-id="days-label"
+                    class="canva-text mt-3 text-[.58rem] uppercase tracking-[.15em] text-[#82907d]"
+                  >
+                    Days
+                  </p>
+                </div>
+                <div class="time-cell">
+                  <p id="hours-value" class="time-number" aria-live="polite">
+                    00
+                  </p>
+                  <p
+                    data-template-id="hours-label"
+                    class="canva-text mt-3 text-[.58rem] uppercase tracking-[.15em] text-[#82907d]"
+                  >
+                    Hours
+                  </p>
+                </div>
+                <div class="time-cell">
+                  <p id="minutes-value" class="time-number" aria-live="polite">
+                    00
+                  </p>
+                  <p
+                    data-template-id="minutes-label"
+                    class="canva-text mt-3 text-[.58rem] uppercase tracking-[.15em] text-[#82907d]"
+                  >
+                    Minutes
+                  </p>
+                </div>
+                <div class="time-cell">
+                  <p id="seconds-value" class="time-number" aria-live="polite">
+                    00
+                  </p>
+                  <p
+                    data-template-id="seconds-label"
+                    class="canva-text mt-3 text-[.58rem] uppercase tracking-[.15em] text-[#82907d]"
+                  >
+                    Seconds
+                  </p>
+                </div>
+              </div>
+              <p
+                id="celebration-message"
+                data-template-id="celebration-message"
+                class="canva-text hidden editorial-display py-6 text-2xl text-[#aa8751]"
+                aria-live="polite"
+              >
+                The celebration has begun
+              </p>
+            </div>
+            <h2
+              data-template-id="closing-heading"
+              class="canva-text editorial-display mt-4 text-2xl"
+            >
+              Awaiting your noble presence
+            </h2>
+            <p
+              data-template-id="closing-names"
+              class="canva-text mt-5 text-md uppercase tracking-[.17em] text-[#82907d]"
+            >
+              With love Archi and Darshil
+            </p>
+            <div class="fine-rule mt-8 ">✦</div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <audio id="bg-music" loop preload="auto" aria-hidden="true">
+      <source src="audio/bg-music.mp3" type="audio/mpeg" />
+      <source src="audio/bg-music.mov" type="video/quicktime" />
+    </audio>
+    <script src="js/background-music.js"></script>
+    <script src="js/intro-cover.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
