@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minute = Math.floor((distance / (1000 * 60)) % 60);
     const second = Math.floor((distance / 1000) % 60);
 
-    valueElements.days.textContent = String(day).padStart(3, "0");
+    valueElements.days.textContent = String(day).padStart(2, "0");
     valueElements.hours.textContent = String(hour).padStart(2, "0");
     valueElements.minutes.textContent = String(minute).padStart(2, "0");
     valueElements.seconds.textContent = String(second).padStart(2, "0");
